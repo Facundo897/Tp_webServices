@@ -4,7 +4,7 @@
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    <div class="col" *ngFor="let p of peliculas | slice:0:6">  <!--Es un filtro solo mostrara 6 peliculas-->
+    <div class="col" *ngFor="let p of peliculas() | slice:0:6">  <!--Es un filtro solo mostrara 6 peliculas-->
       <div class="card h-100 bg-white text-dark border border-light-subtle shadow-sm p-3 rounded-4" >
         <img [src]="p.image" class="card-img-top rounded-4 object-fit-cover" alt="El Padrino" style="height: 180px;">
         
@@ -19,7 +19,7 @@
             style="font-size: 0.75rem;" *ngFor="let g of p.genre">{{g}}</span>
           
           </div>
-          
+
         </div>
       </div>
     </div>
