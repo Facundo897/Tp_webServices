@@ -1,0 +1,35 @@
+<div class="container mt-5" style="max-width: 400px;">
+  <h2 class="text-center mb-4">Conversor de Divisas</h2>
+
+  <div class="card p-4 shadow-sm">
+    <form>
+      <div class="mb-3">
+        <label for="cantidad" class="form-label">Cantidad</label>
+        <input type="number" id="cantidad" class="form-control" [(ngModel)]="amount" name="cantidad" placeholder="Cantidad">
+      </div>
+
+      <div class="mb-3">
+        <label for="monedaOrigen" class="form-label">De</label>
+        <select id="monedaOrigen"name="monedaOrigen" class="form-select" [(ngModel)]="from">
+          <option *ngFor="let m of monedas() | keyvalue" [value]="m.key">{{ m.key }} - {{ m.value }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="monedaDestino" class="form-label">A</label>
+        <select id="monedaDestino" name="monedaDestino"class="form-select" [(ngModel)]="to">
+          <option *ngFor="let m of monedas() | keyvalue" [value]="m.key">{{ m.key }} - {{ m.value }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <h3>Resultado</h3>
+        <label for="resultado" class="form-label">{{resultado() | currency}}</label>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="button" class="btn btn-primary d-flex align-items-center justify-content-center gap-2" (click)="convertirMonto()">Convertir</button>
+      </div>
+    </form>
+  </div>
+</div>

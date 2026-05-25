@@ -36,6 +36,7 @@ export class PuntoB implements OnInit{
   }
 
   mostrarModelos(id:string){
+    this.modelos.set([]) //LIMPIAR EL ARRAY
     this.serviceApi.getModelos(id).subscribe(
       (results:any)=>{
         this.modelos.set(results)

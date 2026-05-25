@@ -1,0 +1,29 @@
+<div class="container mt-5" style="max-width: 500px;">
+  <h2 class="text-center mb-4">Conversor de Texto a Voz</h2>
+
+  <div class="card p-4 shadow-sm">
+    <form>
+      <div class="mb-3">
+        <label for="textoIngresado" class="form-label">Texto a convertir</label>
+        
+        <input type="text" id="textoIngresado" class="form-control" name="textoIngresado" [(ngModel)]="text" placeholder="Escribe el texto aquí...">
+      </div>
+
+      <div class="mb-3">
+        <label for="idiomaSelect" class="form-label">Seleccionar Idioma</label>
+        <select id="idiomaSelect" name="idiomaSelect" class="form-select">
+          <option *ngFor="let l of lenguajes()">{{l.language}}</option>
+        </select>
+      </div>
+
+      <div class="d-grid gap-2 mb-4">
+        <button type="button" class="btn btn-primary" (click)="convertirTexto()">Generar Audio</button>
+      </div>
+
+      <div class="mb-2" *ngIf="audioUrl">
+        <label for="reproductorAudio" class="form-label d-block text-center fw-bold">Reproductor de Audio</label>
+        <audio id="reproductorAudio" name="reproductorAudio" controls class="w-100" [src]="audioUrl"></audio>
+      </div>
+    </form>
+  </div>
+</div>

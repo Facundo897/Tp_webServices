@@ -1,0 +1,24 @@
+<div class="container mt-5" style="max-width: 500px;">
+  <h2 class="text-center mb-4">Generador de Códigos QR</h2>
+
+  <div class="card p-4 shadow-sm">
+    <form>
+      <div class="mb-3">
+        <label for="textoQr" class="form-label">Texto o Enlace (URL)</label>
+        <input type="text" id="textoQr" class="form-control" [(ngModel)]="text" name="textoQr" placeholder="Escribe aquí el contenido...">
+      </div>
+
+      <div class="d-grid gap-2 mb-4">
+        <button type="button" class="btn btn-success" (click)="generarQr()">Generar</button>
+      </div>
+
+      <div class="mt-3 p-3 bg-light rounded border text-center">
+        <h5 class="fw-bold mb-3">Resultado</h5>
+
+        <img *ngIf="qrResultadoUrl" [src]="qrResultadoUrl" alt="Resultado API" class="img-fluid border p-2 bg-white shadow-sm" style="max-width: 200px;">
+        
+        <p *ngIf="!qrResultadoUrl" class="text-muted small mb-0">Tu código QR aparecerá aquí</p>
+    </div>
+    </form>
+  </div>
+</div>
